@@ -1,0 +1,26 @@
+name: 'Subtract days to date'
+author: 'Rubén Báez'
+description: 'Subtract days to a given date'
+branding:
+  color: 'blue'
+  icon: 'delete'
+inputs:
+  date:
+    description: 'Date from which the days are going to be subtracted'
+    default: false
+  days:
+    description: 'Number of days to subtract'
+    default: false
+outputs:
+  start_date:
+    description: "Date with subtracted days"
+  end_date:
+    description: "Start given date"
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - --date
+    - ${{ inputs.date }}
+    - --days
+    - ${{ inputs.days }}
