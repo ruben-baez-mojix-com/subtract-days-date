@@ -47,6 +47,9 @@ def main():
     args = parse_args()
     date = args.date
     days = args.days
+    # remove double quotes in arguments
+    date = date.strip('\"')
+    days = days.strip('\"')
     last_start_dt = datetime.strptime(date, date_format)
     targetDate = getPreviousByDay(last_start_dt.strftime('%A'), last_start_dt, int(days))
 
